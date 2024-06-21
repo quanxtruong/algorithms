@@ -7,15 +7,21 @@ const towerTracer = new Array2DTracer('Towers Of Hanoi');
 const logTracer = new LogTracer('Progress');
 // }
 
-let discs = 3; // just change the value of discs and the visuals will reflect how many discs are stacked!
+let disks = 4; // just change the value of disks, build, and then the visuals will reflect how many disks are stacked!
 const towers = (function createTowers(N) {
     const startState = Array(N).fill().map(() => Array(3).fill(0));
-    for (let k = 1, i = 0; k <= discs; k++, i++) {
+    for (let k = 1, i = 0; k <= disks; k++, i++) {
         startState[i][0] = k;
     }
     return startState;
-}(discs));
+}(disks));
 
+// Logger {
+logTracer.println("Tower of Hanoi Puzzle: Each column represents one of the three rods");
+logTracer.println("                       Smaller valued \"disks\" cannot stack on bigger valued \"disks\"");
+logTracer.println("-------------------------------------------------------------------");
+logTracer.println("Solution with " + disks + " disks:");
+// }
 
 function solveHanoi(n, from_rod, to_rod, aux_rod) {
     // Base Case
@@ -34,7 +40,7 @@ function solveHanoi(n, from_rod, to_rod, aux_rod) {
     
     // Find topmost disk: from_rod -> to_rod
     let disk = 0;
-    for (let i = 0; i < discs; i++) {
+    for (let i = 0; i < disks; i++) {
         if (towers[i][fromIndex] !== 0) {
             disk = towers[i][fromIndex];
             towers[i][fromIndex] = 0;
@@ -48,7 +54,7 @@ function solveHanoi(n, from_rod, to_rod, aux_rod) {
             break;
         }
     }
-    for (let i = discs - 1; i >= 0; i--) {
+    for (let i = disks - 1; i >= 0; i--) {
         if (towers[i][toIndex] === 0) {
             towers[i][toIndex] = disk;
             // visualize the moves {
@@ -71,17 +77,18 @@ function solveHanoi(n, from_rod, to_rod, aux_rod) {
     // visualize {
     Layout.setRoot(new VerticalLayout([towerTracer, logTracer]));
     towerTracer.set(towers);
-    logTracer.println()
     Tracer.delay();
+    logTracer.println("Starting execution");
+    logTracer.println("------------------");
     // }
-    solveHanoi(discs, '1', '3', '2');
+    solveHanoi(disks, '1', '3', '2');
 })();
 
-
-
-
-
-
+    
+    
+    
+    
+    
     
     
     
