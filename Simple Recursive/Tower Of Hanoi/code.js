@@ -7,7 +7,7 @@ const towerTracer = new Array2DTracer('Towers Of Hanoi');
 const logTracer = new LogTracer('Progress');
 // }
 
-let disks = 4; // just change the value of disks, build, and then the visuals will reflect how many disks are stacked!
+let disks = 5; // just change the value of disks, build, and then the visuals will reflect how many disks are stacked!
 const towers = (function createTowers(N) {
     const startState = Array(N).fill().map(() => Array(3).fill(0));
     for (let k = 1, i = 0; k <= disks; k++, i++) {
@@ -82,13 +82,16 @@ function solveHanoi(n, from_rod, to_rod, aux_rod) {
     logTracer.println("------------------");
     // }
     solveHanoi(disks, '1', '3', '2');
+    // logger {
+    logTracer.println("Execution Finished: all pegs moved from source peg to destination peg (rod 1 --> rod 3)");
+    // }
 })();
     
-        
-        
-        
-        
-        
-        
-        
-        
+            
+            
+            
+            
+            
+            
+            
+            
