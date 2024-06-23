@@ -32,7 +32,7 @@ function solveHanoi(n, from_rod, to_rod, aux_rod) {
     solveHanoi(n - 1, from_rod, aux_rod, to_rod);
 
     // Logger {
-    logTracer.println(`Move disk ${n} from rod ${from_rod} to rod ${to_rod}<br/>`);
+    logTracer.println(`Moving disk ${n} from rod ${from_rod} to rod ${to_rod}<br/>`);
     // }
 
     const fromIndex = parseInt(from_rod, 10) - 1;
@@ -83,12 +83,12 @@ function solveHanoi(n, from_rod, to_rod, aux_rod) {
     // }
     solveHanoi(disks, '1', '3', '2');
 })();
-
     
-    
-    
-    
-    
-    
-    
-    
+        
+        
+        
+        
+        
+        
+        
+        
